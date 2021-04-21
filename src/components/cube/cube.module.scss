@@ -1,0 +1,126 @@
+@mixin openClose($keyFrameName, $rotate, $defaultZ, $move) {
+  @keyframes #{$keyFrameName} {
+    0% {
+      transform: $rotate translateZ($defaultZ);
+    }
+    50% {
+      transform: $rotate translateZ($move);
+    }
+    100% {
+      transform: $rotate translateZ($defaultZ);
+    }
+  }
+}
+
+@include openClose("left-open-close", rotateY(-90deg), 115px, 105px);
+@include openClose("right-open-close", rotateY(90deg), 115px, 105px);
+@include openClose("top-open-close", rotateX(90deg), 115px, 105px);
+@include openClose("bottom-open-close", rotateX(-90deg), 115px, 105px);
+@include openClose("front-open-close", rotateY(0deg), 115px, 105px);
+@include openClose("back-open-close", rotateY(180deg), 115px, 105px);
+
+@keyframes cube-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shadow-scale {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.7);
+    filter: blur(15px);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.scene {
+  width: 200px;
+  height: 200px;
+  animation: cube-float 4s infinite ease-in-out;
+  perspective: 800px;
+  perspective-origin: 50% -150px;
+}
+
+.cube {
+  transform-style: preserve-3d;
+  transform: rotateY(-15deg);
+}
+
+.cube div {
+  display: block;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  backface-visibility: visible;
+}
+
+.front,
+.back,
+.top,
+.bottom,
+.left,
+.right {
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.front {
+  background: rgba(0, 0, 0, 0.4);
+  transform: rotateY(0deg) translateZ(115px);
+  animation: front-open-close 4s infinite ease-in-out;
+}
+
+.back {
+  background: rgba(0, 255, 0, 0.7);
+  transform: rotateY(180deg) translateZ(115px);
+  animation: back-open-close 4s infinite ease-in-out;
+}
+
+.top {
+  background: rgba(196, 0, 0, 0.7);
+  transform: rotateX(90deg) translateZ(115px);
+  animation: top-open-close 4s infinite ease-in-out;
+}
+
+.bottom {
+  background: rgba(196, 0, 196, 0.7);
+  transform: rotateX(-90deg) translateZ(115px);
+  animation: bottom-open-close 4s infinite ease-in-out;
+}
+
+.left {
+  background: rgba(0, 0, 196, 0.7);
+  transform: rotateY(-90deg) translateZ(115px);
+  animation: left-open-close 4s infinite ease-in-out;
+}
+
+.right {
+  background: rgba(196, 196, 0, 0.7);
+  transform: rotateY(90deg) translateZ(115px);
+  animation: right-open-close 4s infinite ease-in-out;
+}
+
+.shadow {
+  width: 180px;
+  height: 10px;
+  filter: blur(25px);
+  background: #000;
+  margin: 20% 0 0;
+  animation: shadow-scale 4s infinite ease-in-out;
+  perspective: 800px;
+}

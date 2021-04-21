@@ -1,0 +1,43 @@
+.arrowBtn {
+  cursor: pointer;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border-top: 6px solid #353535;
+  border-left: 6px solid #353535;
+  background: transparent;
+  border-radius: 2px;
+  text-shadow: 1px 1px 0 black;
+  transition: border-color 0.3s;
+  &:hover {
+    border-color: #505050;
+  }
+
+  &.left {
+    transform: rotate(-45deg);
+    &:active {
+      transform: rotate(-45deg) scale(0.8);
+    }
+  }
+
+  &.right {
+    transform: rotate(135deg);
+    &:active {
+      transform: rotate(135deg) scale(0.8);
+    }
+  }
+
+  &.top {
+    transform: rotate(45deg);
+    &:active {
+      transform: rotate(45deg) scale(0.8);
+    }
+  }
+
+  &.bottom {
+    transform: rotate(-135deg);
+    &:active {
+      transform: rotate(-135deg) scale(0.8);
+    }
+  }
+}

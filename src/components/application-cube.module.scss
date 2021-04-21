@@ -1,0 +1,41 @@
+.container {
+  background: radial-gradient(#ffffff, #b9b9b9);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 600px;
+  position: relative;
+}
+
+.left,
+.right,
+.top,
+.bottom {
+  position: absolute;
+}
+
+.left {
+  left: 20px;
+}
+
+.right {
+  right: 20px;
+}
+
+.top {
+  top: -90px;
+  left: 50%;
+}
+
+.bottom {
+  bottom: -90px;
+  left: 50%;
+}
