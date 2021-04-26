@@ -55,6 +55,7 @@
 .cube {
   transform-style: preserve-3d;
   transform: rotateY(-15deg);
+  transform-origin: 100px 100px 0;
 }
 
 .cube div {
