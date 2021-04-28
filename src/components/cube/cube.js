@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./cube.module.scss";
 
-const Cube = () => {
+const Cube = ({ isAutoPlay }) => {
   return (
     <>
-      <div className={styles.scene}>
+      <div className={`${styles.scene} ${isAutoPlay ? "auto-play" : ""}`}>
         <div className={styles.cube}>
           <div className={styles.front}>Front</div>
           <div className={styles.back}>Back</div>
@@ -14,7 +14,7 @@ const Cube = () => {
           <div className={styles.right}>Right</div>
         </div>
       </div>
-      <div className={styles.shadow}></div>
+      <div className={styles.shadow} />
     </>
   );
 };
