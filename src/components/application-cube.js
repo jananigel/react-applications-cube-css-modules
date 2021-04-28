@@ -69,9 +69,9 @@ const ApplicationCube = () => {
     });
   };
 
-  useEffect = () => {
+  useEffect(() => {
     idleHandle();
-  };
+  });
 
   return (
     <>
