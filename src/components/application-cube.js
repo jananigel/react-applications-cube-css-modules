@@ -31,6 +31,23 @@ import Cube from "./cube/cube.js";
 //     runTime();
 //   });
 // };
+document.addEventListener("mousemove", _ => {
+  console.log("move");
+  // clearTimeout(timer);
+  // // setVariables({
+  // //   isIdle: false
+  // // });
+
+  // runTime();
+});
+
+document.addEventListener("click", _ => {
+  // clearTimeout(timer);
+  // setVariables({
+  //   isIdle: false
+  // });
+  // runTime();
+});
 
 const ApplicationCube = () => {
   let timer;
@@ -50,23 +67,6 @@ const ApplicationCube = () => {
 
   const idleHandle = () => {
     runTime();
-    document.addEventListener("mousemove", _ => {
-      console.log("move");
-      clearTimeout(timer);
-      setVariables({
-        isIdle: false
-      });
-
-      runTime();
-    });
-
-    document.addEventListener("click", _ => {
-      clearTimeout(timer);
-      setVariables({
-        isIdle: false
-      });
-      runTime();
-    });
   };
 
   useEffect(() => {
