@@ -39,13 +39,13 @@ const ApplicationCube = () => {
   });
 
   const runTime = () => {
-    timer = setTimeout(() => {
-      console.log("idle 3 seconds");
-      setVariables({
-        isIdle: true
-      });
-      clearTimeout(timer);
-    }, 3000);
+    // timer = setTimeout(() => {
+    //   console.log("idle 3 seconds");
+    //   setVariables({
+    //     isIdle: true
+    //   });
+    //   clearTimeout(timer);
+    // }, 3000);
   };
 
   const idleHandle = () => {
@@ -70,7 +70,7 @@ const ApplicationCube = () => {
   };
 
   useEffect(() => {
-    idleHandle();
+    // idleHandle();
   });
 
   return (
