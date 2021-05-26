@@ -1,11 +1,14 @@
-import React from "react";
-import styles from "./cube.module.scss";
+import React from 'react';
+import styles from './cube.module.scss';
 
-const Cube = ({ isAutoPlay }) => {
+const Cube = ({ isAutoPlay, direction }) => {
+  const rotate = {
+    transform: `rotateY(${direction['x']}deg) rotateX(${direction['y']}deg)`
+  };
   return (
     <>
-      <div className={`${styles.scene} ${isAutoPlay ? "auto-play" : ""}`}>
-        <div className={styles.cube}>
+      <div className={`${styles.scene} ${isAutoPlay ? 'auto-play' : ''}`}>
+        <div className={styles.cube} style={rotate}>
           <div className={styles.front}>Front</div>
           <div className={styles.back}>Back</div>
           <div className={styles.top}>Top</div>

@@ -3,10 +3,17 @@ import ArrowButton from '../shared/components/buttons/arrow-btn.js';
 import styles from './application-cube.module.scss';
 import Cube from './cube/cube.js';
 
+const DEFAULT_X = -15;
+const ROTATE_VALUE = 90;
+
 const ApplicationCube = () => {
   let timer;
   const [variables, setVariables] = useState({
-    isIdle: false
+    isIdle: false,
+    axis: {
+      y: 0,
+      x: DEFAULT_X
+    }
   });
 
   const runTime = () => {
@@ -32,7 +39,27 @@ const ApplicationCube = () => {
     runTime();
   };
 
+  const onArrowClick = (axis, direction) => {
+    if (axis === 'y') {
+      // TODO: the number shall be reset when > 360
+      setVariables({
+        axis: {
+          y: variables.axis.y + direction * ROTATE_VALUE,
+          x: variables.axis.x
+        }
+      });
+    } else {
+      setVariables({
+        axis: {
+          x: variables.axis.x + direction * ROTATE_VALUE,
+          y: variables.axis.y
+        }
+      });
+    }
+  };
+
   useEffect(() => {
+    // TODO: auto rotate when the web idle.
     // idleHandle();
     // document.addEventListener('mousemove', clearIdle);
     // document.addEventListener('click', clearIdle);
@@ -46,11 +73,27 @@ const ApplicationCube = () => {
     <>
       <div className={`${styles.container}`}>
         <div className={`${styles.content}`}>
-          <Cube isAutoPlay={variables.isIdle} />
-          <ArrowButton className={`${styles.top}`} panelClass={'top'} />
-          <ArrowButton className={`${styles.bottom}`} panelClass={'bottom'} />
-          <ArrowButton className={`${styles.left}`} panelClass={'left'} />
-          <ArrowButton className={`${styles.right}`} panelClass={'right'} />
+          <Cube isAutoPlay={variables.isIdle} direction={variables['axis']} />
+          <ArrowButton
+            className={`${styles.top}`}
+            panelClass={'top'}
+            callback={e => onArrowClick('y', 1)}
+          />
+          <ArrowButton
+            className={`${styles.bottom}`}
+            panelClass={'bottom'}
+            callback={e => onArrowClick('y', -1)}
+          />
+          <ArrowButton
+            className={`${styles.left}`}
+            panelClass={'left'}
+            callback={e => onArrowClick('x', 1)}
+          />
+          <ArrowButton
+            className={`${styles.right}`}
+            panelClass={'right'}
+            callback={e => onArrowClick('x', -1)}
+          />
         </div>
       </div>
     </>

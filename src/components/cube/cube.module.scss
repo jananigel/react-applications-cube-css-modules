@@ -12,12 +12,12 @@
   }
 }
 
-@include openClose("left-open-close", rotateY(-90deg), 115px, 105px);
-@include openClose("right-open-close", rotateY(90deg), 115px, 105px);
-@include openClose("top-open-close", rotateX(90deg), 115px, 105px);
-@include openClose("bottom-open-close", rotateX(-90deg), 115px, 105px);
-@include openClose("front-open-close", rotateY(0deg), 115px, 105px);
-@include openClose("back-open-close", rotateY(180deg), 115px, 105px);
+@include openClose('left-open-close', rotateY(-90deg), 115px, 105px);
+@include openClose('right-open-close', rotateY(90deg), 115px, 105px);
+@include openClose('top-open-close', rotateX(90deg), 115px, 105px);
+@include openClose('bottom-open-close', rotateX(-90deg), 115px, 105px);
+@include openClose('front-open-close', rotateY(0deg), 115px, 105px);
+@include openClose('back-open-close', rotateY(180deg), 115px, 105px);
 
 @keyframes cube-float {
   0% {
@@ -56,6 +56,7 @@
   transform-style: preserve-3d;
   transform: rotateY(-15deg);
   transform-origin: 100px 100px 0;
+  transition: 0.3s;
 }
 
 .cube div {
