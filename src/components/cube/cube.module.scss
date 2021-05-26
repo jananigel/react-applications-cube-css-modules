@@ -88,31 +88,31 @@
 }
 
 .back {
-  background: rgba(0, 255, 0, 0.7);
+  background: rgba(0, 0, 0, 0.4);
   transform: rotateY(180deg) translateZ(115px);
   animation: back-open-close 4s infinite ease-in-out;
 }
 
 .top {
-  background: rgba(196, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.4);
   transform: rotateX(90deg) translateZ(115px);
   animation: top-open-close 4s infinite ease-in-out;
 }
 
 .bottom {
-  background: rgba(196, 0, 196, 0.7);
+  background: rgba(0, 0, 0, 0.4);
   transform: rotateX(-90deg) translateZ(115px);
   animation: bottom-open-close 4s infinite ease-in-out;
 }
 
 .left {
-  background: rgba(0, 0, 196, 0.7);
+  background: rgba(0, 0, 0, 0.4);
   transform: rotateY(-90deg) translateZ(115px);
   animation: left-open-close 4s infinite ease-in-out;
 }
 
 .right {
-  background: rgba(196, 196, 0, 0.7);
+  background: rgba(0, 0, 0, 0.4);
   transform: rotateY(90deg) translateZ(115px);
   animation: right-open-close 4s infinite ease-in-out;
 }
