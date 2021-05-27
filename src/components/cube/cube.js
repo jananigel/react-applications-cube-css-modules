@@ -1,13 +1,19 @@
 import React from 'react';
 import styles from './cube.module.scss';
+import { useHistory } from 'react-router-dom';
 
 const Cube = ({ isAutoPlay, direction, cubeInfo }) => {
+  const history = useHistory();
   const rotate = {
     transform: `rotateY(${direction['x']}deg) rotateX(${direction['y']}deg)`
   };
 
   const background = url => {
     return url ? { background: `url(${url})` } : {};
+  };
+
+  const onClick = () => {
+    history.push('/hard-drive');
   };
 
   return (
@@ -17,6 +23,7 @@ const Cube = ({ isAutoPlay, direction, cubeInfo }) => {
           <div
             className={styles.front}
             style={background(cubeInfo.front.background)}
+            onClick={() => onClick()}
           >
             {cubeInfo.front.background ? '' : cubeInfo.front.text}
           </div>
