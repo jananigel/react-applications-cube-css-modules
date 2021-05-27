@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import ArrowButton from '../../shared/components/buttons/arrow/arrow-btn.js';
 import styles from './application-cube.module.scss';
 import Cube from '../../components/cube/cube.js';
+import CubeConfig from '../../shared/configs/cube.config.js';
 
 const DEFAULT_X = -15;
 const ROTATE_VALUE = 90;
 
 const ApplicationCube = () => {
   let timer;
+  let cubeConfig = new CubeConfig();
   const [variables, setVariables] = useState({
     isIdle: false,
     axis: {
@@ -73,7 +75,7 @@ const ApplicationCube = () => {
     <>
       <div className={`${styles.container}`}>
         <div className={`${styles.content}`}>
-          <Cube isAutoPlay={variables.isIdle} direction={variables['axis']} />
+          <Cube isAutoPlay={variables.isIdle} direction={variables['axis']} cubeInfo={cubeConfig}/>
           <ArrowButton
             className={`${styles.top}`}
             panelClass={'top'}
