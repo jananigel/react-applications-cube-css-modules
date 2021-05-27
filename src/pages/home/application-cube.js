@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ArrowButton from '../shared/components/buttons/arrow-btn.js';
+import ArrowButton from '../../shared/components/buttons/arrow-btn.js';
 import styles from './application-cube.module.scss';
-import Cube from './cube/cube.js';
+import Cube from '../../components/cube/cube.js';
 
 const DEFAULT_X = -15;
 const ROTATE_VALUE = 90;
