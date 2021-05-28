@@ -3,6 +3,7 @@ import ArrowButton from '../../shared/components/buttons/arrow/arrow-btn.js';
 import styles from './application-cube.module.scss';
 import Cube from '../../components/cube/cube.js';
 import CubeConfig from '../../shared/configs/cube.config.js';
+import { useHistory } from 'react-router-dom';
 
 const DEFAULT_X = -15;
 const ROTATE_VALUE = 90;
@@ -10,6 +11,7 @@ const ROTATE_VALUE = 90;
 const ApplicationCube = () => {
   let timer;
   let cubeConfig = new CubeConfig();
+  const history = useHistory();
   const [variables, setVariables] = useState({
     isIdle: false,
     axis: {
@@ -60,6 +62,17 @@ const ApplicationCube = () => {
     }
   };
 
+  const onCubeClick = (e, type) => {
+    switch (type) {
+      case 'front':
+        history.push('/hard-drive');
+        break;
+      default:
+        console.error('onCubeClick: undefined type');
+        break;
+    }
+  };
+
   useEffect(() => {
     // TODO: auto rotate when the web idle.
     // idleHandle();
@@ -75,7 +88,12 @@ const ApplicationCube = () => {
     <>
       <div className={`${styles.container}`}>
         <div className={`${styles.content}`}>
-          <Cube isAutoPlay={variables.isIdle} direction={variables['axis']} cubeInfo={cubeConfig}/>
+          <Cube
+            isAutoPlay={variables.isIdle}
+            direction={variables['axis']}
+            cubeInfo={cubeConfig}
+            callback={(e, type) => onCubeClick(e, type)}
+          />
           <ArrowButton
             className={`${styles.top}`}
             panelClass={'top'}
